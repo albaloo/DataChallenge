@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Roshanak Zilouchian's Homepage</title>	
+<title>Amazon Review Analysis Results</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 <script type="text/javascript">
@@ -23,41 +23,62 @@
 <div id="page">
 
 <div id="header">
-<h1><a href="#">Roshanak Zilouchian Moghaddam</a></h1>
-<h2>University of Washington</h2>
+<h1><a href="#">Amazon Review Analysis Results</a></h1>
+<h2>Data Incubator Challenge Project</h2>
 </div>
 
-<div id="menu">
+<!--div id="menu">
 <ul>
-<li><a href=".">Home</a></li> 
+<li><a href=".">Home</a></li>
 
-<li><a href="publications">Publications</a></li> 
-<li><a href="projects">Projects</a></li> 
+<li><a href="publications">Publications</a></li>
+<li><a href="projects">Projects</a></li>
 <li><a href="cv">CV</a></li>
 <li><a href="other">Art</a></li>
-<li><a href="contact">Contact</a></li> 
+<li><a href="contact">Contact</a></li>
 </ul>
-</div>
+</div-->
 
 <div id="wrapper">
 
 <div id="content">
 
-<h2>Bio</h2>
+<h2>Results</h2>
 </br>
-<div style="float: left; padding: 0 5px 0 0;"><img src="roshanak.jpeg" alt="personal-image" /></div>
-I'm Roshanak Zilouchian Moghaddam. Currently, I'm a research scientist at the information school of the <a href="ischool.uw.edu">University of Washington</a>. I'm working in <a href="http://usegroup.ischool.uw.edu/">usegroup</a> under the supervision of <a href="http://faculty.washington.edu/ajko">Andrew Ko</a>. 
+I've analyzed Amazon Reviews of Baby Products to answer two questions:
+<ul>
+<li><b>Q1.</b> Are there any relationship between length of the reviews and the helpfulness scores given by users</li>
+<li><b>Q2.</b> Are there any relationship between review scores and the helfulness scores given by users</li>
+</ul>
+In order to find out which features are affecting the helfulness score, we can perform a regression analysis and findout whether length of the reviews or review scores can predict helpfulness.
+However, for the purpose of this challenge and because I was asked to deliver plots, I've decided to answer the above two questions by inspecting some graphs.
+The visual inspection is usually the first step in a complete data analysis process, but it should be enough to demonstrate my skills for the purpose of this challenge.
 <br />
 <br />
-I received a PhD in Computer Science from the University of Illinois at Urbana-Champaign in 2014. At Illinois, I've been working with <a href="https://wiki.engr.illinois.edu/display/orchid/Bailey">Brian Bailey</a> and <a href="http://www.cs.illinois.edu/homes/wfu/">Wai-Tat Fu</a> on supporting collaboration and consensus building in online user interface design discussions, and with <a href="http://people.lis.illinois.edu/~twidale/">Michael Twidale</a> on challenges of participation in user interface design discussions in open source communities.
+<h3>Q1</h3>
+Helpfulness score in amazon reviews consists of two numbers [x, y], where x is the number of people who found the review helpful and y is the total number of people who voted for helpfulness of the review.
+Let's first compute a helpfulness percentage by dividing x/y. Then we need to compute the length of the review (excluding stop words and punctuations).
+Now we can plot the helpfulness percentage on the y axis and review length on the x axis as shown below.
+<div><img class="plot" src="plot1.png" alt="helpfulness-length" /></div>
+<br />
+It looks like that when the length of the review is between 1 to 7, there is not much variety between the helpfulness scores.
+Now let's compare average helpfulness percentage for each length.
+<div><img class="plot" src="plot2.png" alt="helpfulness-length" /></div>
+<br />
+Again, it looks like there is not much difference in average helpfulness percentage for each length (other than two data points). Therefore, visually we did not find any indication that helpfulness percentage and length of review are related.
 <br />
 <br />
-My research interests are: Designing and Developing Educational Games, Collaboration and Consensus Building in Online Communities, and Information Visualization
-</br>
-</br>
-</br>
+<h3>Q2</h3>
+Now let's plot the helpfulness percentage on the y axis and overall review score on the x axis as shown below.
+<div><img class="plot" src="plot3.png" alt="helpfulness-length" /></div>
+<br />
+There are so many data points and visually there is not much variety in the helpfulness scores for each overall review score.
+Now let's compare average helpfulness percentage for each overall score.
+<div><img class="plot" src="plot4.png" alt="helpfulness-length" /></div>
+<br />
+Again, it looks like there is not much difference in average helpfulness percentage (the range changes between 0.6 to 0.8).
+Therefore, visually we did not find any indication that helpfulness percentage and overall score are related. But, interestingly as overall score increases more people find reviews helpful on average.
 </div>
-
 <div style="clear: both;"> </div>
 
 </div>
@@ -69,8 +90,7 @@ My research interests are: Designing and Developing Educational Games, Collabora
 
 </div>
 
-		
+
 </body>
 
 </html>
-
